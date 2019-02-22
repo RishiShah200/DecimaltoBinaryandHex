@@ -5,12 +5,12 @@ public class DecimaltoBinaryConverter {
     public DecimaltoBinaryConverter() {
         char hex[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};  //Stores Possible Hex Values
         int rem;
-        String str2 = "";
-        int binary[] = new int[40];
+        String str2 = "";   //Stores converted int to Hex
+        int binary[] = new int[40];     //Array that stores binary values
         int index = 0;
         boolean run = true;
         Scanner reader = new Scanner(System.in);
-        while(run) {
+        while (run) {
             System.out.println("Please enter a number that you would like to convert?: ");
             int num = reader.nextInt();
             reader.nextLine();
@@ -38,10 +38,9 @@ public class DecimaltoBinaryConverter {
             System.out.println();
             System.out.println("Would you like to continue? Yes[Y], No[N]");
             String ans = reader.nextLine();
-            if(ans.equals("Y")) {
+            if (ans.equals("Y")) {
                 run = true;
-            }
-            else {
+            } else {
                 System.out.println("You have terminated the program");
                 run = false;
             }
