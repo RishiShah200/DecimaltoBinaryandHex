@@ -13,11 +13,19 @@ public class DecimaltoBinaryConverter {
         while (run) {
             System.out.println("Please enter a number that you would like to convert?: ");
             int num = reader.nextInt();
+            while(num<=0){
+                System.out.println("The number you have entered is invalid. Please repick a number: ");
+                num = reader.nextInt();
+            }
             reader.nextLine();
             System.out.println("What would you like to convert your number to? Binary[b] or Hexadecimal[h]");
             String choice = reader.nextLine();
+            while(!(choice.toUpperCase().equals("H"))||(choice.toUpperCase().equals("B"))){
+                System.out.println("The choice you have selected is not an option. Please reselect one of the options. Binary[B} or Hexadecimal[H]");
+                choice = reader.nextLine();
+            }
             if (choice.toUpperCase().equals("H")) {
-                System.out.println("You have selected to convert your number to Hexadeciaml");
+                System.out.println("You have selected to convert your number to Hexadecimal");
                 while (num > 0) {
                     rem = num % 16;
                     str2 = hex[rem] + str2;
@@ -38,8 +46,17 @@ public class DecimaltoBinaryConverter {
             System.out.println();
             System.out.println("Would you like to continue? Yes[Y], No[N]");
             String ans = reader.nextLine();
-            if (ans.equals("Y")) {
+            while(!(ans.toUpperCase().equals("Y"))||ans.toUpperCase().equals("N")){
+                System.out.println("The choice you have selected is invalid. Reselect your choice: ");
+                ans = reader.nextLine();
+            }
+            if (ans.toUpperCase().equals("Y")) {
                 run = true;
+                rem = 0;
+                str2 = "";
+                index = 0;
+                num = 0;
+                choice = "";
             } else {
                 System.out.println("You have terminated the program");
                 run = false;
